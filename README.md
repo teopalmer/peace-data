@@ -1,6 +1,6 @@
 # Команда Peace Data
 
-![](https://i.imgur.com/VH3MGdt.jpg)
+![](https://i.imgur.com/quSNDyW.jpg)
 
 ## Состав команды и роли
 
