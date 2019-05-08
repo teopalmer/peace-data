@@ -53,7 +53,7 @@ class UFOLayer(cocos.layer.Layer):
         if self.mouse_on_sprite(x, y):
             image = pyglet.image.load('Resources/tim_cursor.png')
             cursor = pyglet.window.ImageMouseCursor(image, 60, 89)
-            window.set_mouse_cursor(cursor)
+            director.window.set_mouse_cursor(cursor)
         else:
             cursor = director.window.get_system_mouse_cursor(director.window.CURSOR_DEFAULT)
             director.window.set_mouse_cursor(cursor)
