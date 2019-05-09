@@ -1,5 +1,3 @@
-import Textures
-import Tools
 import cocos
 from cocos.director import director
 from pyglet.window import key, mouse
