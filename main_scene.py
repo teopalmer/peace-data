@@ -1,3 +1,4 @@
+import menu
 import cocos
 from cocos.director import director
 from pyglet.window import key, mouse
@@ -13,7 +14,6 @@ class Mover(cocos.actions.Move):
         vel_x = (keyboard[key.RIGHT] - keyboard[key.LEFT]) * 500
         vel_y = (keyboard[key.UP] - keyboard[key.DOWN]) * 500
         self.target.velocity = (vel_x, vel_y)
-
 
 class UFOLayer(cocos.layer.Layer): 
     """Анимированный объект"""
@@ -117,17 +117,21 @@ if __name__ == '__main__':
     
     keyboard = key.KeyStateHandler() # Инициализация клавиатуры
     director.window.push_handlers(keyboard)
+    
+    
     """Инициализация объектов"""
     ufo = UFOLayer()
     cat = CatLayer(760, 330)
     cat2 = CatLayer(100, 330)
     background_layer = Static_Image("Resources/IMG_6219.PNG", 1920/2, 1080/2)
 
-    """Добавление в сцену"""
-    test_scene = cocos.scene.Scene()
-    test_scene.add(background_layer, z=0)
-    test_scene.add(cat, z=1)
-    test_scene.add(cat2, z=2)
-    test_scene.add(ufo, z=2)
+    """Добавление объектов в основную сцену"""
+    MAIN = cocos.scene.Scene()
+    MAIN.add(background_layer, z=0)
+    MAIN.add(cat, z=1)
+    MAIN.add(cat2, z=2)
+    MAIN.add(ufo, z=2)
 
-    director.run(test_scene)
+    """Инициализация меню и основной сцены"""
+    MENU = cocos.scene.Scene(menu.MainMenu(MAIN))
+    director.run(MENU)
