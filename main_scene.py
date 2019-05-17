@@ -1,5 +1,4 @@
 import menu
-import main_scene_level_2
 import cocos
 from cocos.director import director
 from pyglet.window import key, mouse
