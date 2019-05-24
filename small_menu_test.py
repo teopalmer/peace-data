@@ -67,7 +67,7 @@ if __name__ == '__main__':
     test_scene = cocos.scene.Scene() # Тестовая сцена
     scene1 = cocos.scene.Scene()
     menu = MainMenu(scene1) # Создание объекта "Меню"
-    small_menu = SmallMenu(MainMenu(scene1),MainMenu(scene1))
+    small_menu = SmallMenu(scene1,scene1)
     test_scene.add(small_menu, z=0) 
     scene1.add(menu,z=0)
 
