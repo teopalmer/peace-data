@@ -1,12 +1,12 @@
 import cocos
 import menu
 from cocos.director import director
-from cocos.scenes import FlipX3DTransition as animation # Анимация перехода
+from cocos.scenes import FlipX3DTransition as animation 
 class SetMenu(cocos.menu.Menu):
     is_event_handler = True
     def __init__(self,main_game_scene):
         self.main_game_scene = main_game_scene
-        super().__init__("Peace Data quest") # Название 
+        super().__init__("Peace Data quest") 
 
         menus = []
 
@@ -36,16 +36,16 @@ class SetMenu(cocos.menu.Menu):
         
 if __name__ == '__main__':
     director.init(width=1920, height=1080, caption="Cocos test", autoscale=True, resizable=True) # Инициализация директора (тест)
-    director.window.pop_handlers() # Отключение дебаг функций
+    director.window.pop_handlers() 
     
    
-    test_scene = cocos.scene.Scene() # Тестовая сцена
+    test_scene = cocos.scene.Scene() 
     scene_box = cocos.scene.Scene()
     scene_set = cocos.scene.Scene()
     small_menu = menu.SmallMenu(scene_set,scene_box)
     test_scene.add(small_menu)
     scene_set.add(SetMenu(test_scene))
 
-    director.run(test_scene) # Запуск сцены
+    director.run(test_scene) 
 
 
