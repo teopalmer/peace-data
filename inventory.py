@@ -1,8 +1,7 @@
 import cocos
-import menu
 from cocos.director import director
 from cocos.scenes import FlipX3DTransition as animation # Анимация перехода
-class InvMenu(cocos.menu.Menu):
+class Inventory(cocos.menu.Menu):
 
     def __init__(self,main_game_scene):
 
