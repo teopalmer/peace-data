@@ -1,5 +1,7 @@
 import cocos
 from texture_tools import StaticImage
+import tools
+import inventory
 
 def lvl1_scene():
     """Создание игрового уровня №1"""
@@ -41,3 +43,14 @@ def final_scene():
     Scene.add(label)
     
     return Scene
+def box_scene(main):
+    """Создание инвентаря"""
+    Scene = cocos.scene.Scene()
+    Scene.add(inventory.Inventory(main))
+    return Scene
+def set_scene(main):
+    """Создание настроек"""
+    Scene = cocos.scene.Scene()
+    Scene.add(tools.SetMenu(main))
+    return Scene
+    
