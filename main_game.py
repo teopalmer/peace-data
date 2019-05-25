@@ -1,6 +1,7 @@
 import menu
 import transitions
-from scenes import lvl1_scene, lvl2_scene, lvl3_scene, final_scene
+import small_menu
+from scenes import lvl1_scene, lvl2_scene, lvl3_scene, final_scene, box_scene,set_scene
 import cocos
 from cocos.director import director
 from pyglet.window import key, mouse
@@ -59,6 +60,22 @@ if __name__ == '__main__':
     lvl2 = lvl2_scene()
     final = final_scene()
 
+    """Инициализация меню основной сценой"""
+    Menu = cocos.scene.Scene(menu.MainMenu(lvl1))
+
+    """Иницилизация сцен инвентаря и настроек"""
+    set1 = set_scene(lvl1)
+    box1 = box_scene(lvl1)
+    small_menu_1 = small_menu.SmallMenu(set1,box1,Menu)
+    
+    set2 = set_scene(lvl2)
+    box2 = box_scene(lvl2)
+    small_menu_2 = small_menu.SmallMenu(set2,box2,Menu)
+    
+    set3 = set_scene(lvl3)
+    box3 = box_scene(lvl3)
+    small_menu_3 = small_menu.SmallMenu(set3,box3,Menu)
+
     #Переходы для 1 уровня
     lvl1_to_lvl2 = transitions.ArrowDown(787, 30, lvl2)
 
@@ -70,21 +87,24 @@ if __name__ == '__main__':
     lvl3_to_lvl2 = transitions.ArrowDown(830, 57, lvl2)
     lvl3_to_final = transitions.ArrowRight(1111, 777, final)
 
+    
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1
     lvl1.add(ufo) 
     lvl1.add(lvl1_to_lvl2)
-
+    lvl1.add(small_menu_1)
+    
     # Объекты для сцены (уровня) №2
     lvl2.add(lvl2_to_lvl1)
     lvl2.add(lvl2_to_lvl3)
+    lvl2.add(small_menu_2)
+    
 
     # Объекты для сцены (уровня) №3
     lvl3.add(lvl3_to_lvl2)
     lvl3.add(lvl3_to_final)
-
-    """Инициализация меню основной сценой"""
-    Menu = cocos.scene.Scene(menu.MainMenu(lvl1))
+    lvl3.add(small_menu_3)
+    
 
     """Запуск игры с главного меню"""
     director.run(Menu)
