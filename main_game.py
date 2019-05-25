@@ -7,6 +7,7 @@ from cocos.director import director
 from pyglet.window import key, mouse
 import pyglet
 
+
 class Mover(cocos.actions.Move): 
     """Реализация движения объекта клавиатурой"""
     def step(self, dt):
@@ -105,6 +106,5 @@ if __name__ == '__main__':
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
     
-
     """Запуск игры с главного меню"""
     director.run(Menu)
