@@ -1,7 +1,7 @@
 import cocos
 import menu
 from cocos.director import director
-from cocos.scenes import FlipX3DTransition as animation 
+from cocos.scenes import FadeTransition as animation 
 class SetMenu(cocos.menu.Menu):
     is_event_handler = True
     def __init__(self,main_game_scene):

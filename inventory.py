@@ -1,6 +1,6 @@
 import cocos
 from cocos.director import director
-from cocos.scenes import FlipX3DTransition as animation 
+from cocos.scenes import FadeTransition as animation 
 class Inventory(cocos.menu.Menu):
 
     def __init__(self,main_game_scene):

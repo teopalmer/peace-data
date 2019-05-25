@@ -3,7 +3,7 @@ import inventory
 import tools
 import menu
 from cocos.director import director
-from cocos.scenes import FlipX3DTransition as animation 
+from cocos.scenes import FadeTransition as animation 
 
 class SmallMenu(cocos.menu.Menu):
     is_event_handler = True
