@@ -47,19 +47,15 @@ def final_scene():
 def box_scene(main):
     """Создание инвентаря"""
     Scene = cocos.scene.Scene()
-    
-    background_layer = StaticImage("Resources/box_bg.png", 1920/2, 1080/2) 
+
+    background_layer = StaticImage("Resources/box_bg.png", 1920/2, 1080/2)
     Scene.add(background_layer)
-    
+
     Scene.add(inventory.Inventory(main))
     return Scene
 
 def set_scene(main):
     """Создание настроек"""
     Scene = cocos.scene.Scene()
-    
-    background_layer = StaticImage("Resources/set_bg.png", 1920/2, 1080/2) 
-    Scene.add(background_layer)
-    
     Scene.add(tools.SetMenu(main))
     return Scene
