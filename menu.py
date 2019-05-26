@@ -12,10 +12,10 @@ class MainMenu(cocos.menu.Menu):
 
         menus = []
 
-        menus.append(cocos.menu.MenuItem("                                               ", self.on_new_game, ))
+        menus.append(cocos.menu.MenuItem("                                                            ", self.on_new_game, ))
         menus[0].y = -50
 
-        menus.append(cocos.menu.MenuItem("                                                  ", self.on_quit))
+        menus.append(cocos.menu.MenuItem("                                                            ", self.on_quit))
         menus[1].y = -450
         
         self.create_menu(menus, cocos.menu.shake(), cocos.menu.shake_back()) 
@@ -37,7 +37,7 @@ class Settings(cocos.menu.Menu):
 
         menus = []
         
-        menus.append(cocos.menu.MenuItem("                                                     ", self.on_settings))
+        menus.append(cocos.menu.MenuItem("                                                           ", self.on_settings))
         menus[0].y = -320
         
         self.create_menu(menus, cocos.menu.shake(), cocos.menu.shake_back()) 
