@@ -60,9 +60,12 @@ if __name__ == '__main__':
     lvl3 = lvl3_scene()
     lvl2 = lvl2_scene()
     final = final_scene()
-
+    
+    
     """Инициализация меню основной сценой"""
     Menu = cocos.scene.Scene(menu.MainMenu(lvl1))
+    set_m = set_scene(Menu)
+    Menu.add(menu.Settings(set_m))
 
     """Иницилизация сцен инвентаря и настроек"""
     set1 = set_scene(lvl1)
