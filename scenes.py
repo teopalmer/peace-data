@@ -7,20 +7,20 @@ def lvl1_scene():
     """Создание игрового уровня №1"""
 
     Scene = cocos.scene.Scene()
-    
-    background_layer = StaticImage("Resources/IMG_0102.PNG", 1920/2, 1080/2)
+
+    background_layer = StaticImage("Resources/first_lvl.PNG", 1920/2, 1080/2)
     Scene.add(background_layer)
-    
+
     return Scene
 
 def lvl2_scene():
     """Создание игрового уровня №2"""
 
     Scene = cocos.scene.Scene()
-    
-    background_layer = StaticImage("Resources/IMG_0106.PNG", 1920/2, 1080/2)
+
+    background_layer = StaticImage("Resources/second_lvl.PNG", 1920/2, 1080/2)
     Scene.add(background_layer)
-    
+
     return Scene
 
 def lvl3_scene():
@@ -28,9 +28,9 @@ def lvl3_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/IMG_0107.PNG", 1920/2, 1080/2)
+    background_layer = StaticImage("Resources/third_lvl.PNG", 1920/2, 1080/2)
     Scene.add(background_layer)
-    
+
     return Scene
 
 def final_scene():
@@ -41,7 +41,7 @@ def final_scene():
     label = cocos.text.Label("The end.", font_size=32, anchor_x="center", anchor_y="center")
     label.position = 1920/2, 1080/2
     Scene.add(label)
-    
+
     return Scene
 def box_scene(main):
     """Создание инвентаря"""
@@ -53,4 +53,3 @@ def set_scene(main):
     Scene = cocos.scene.Scene()
     Scene.add(tools.SetMenu(main))
     return Scene
-    
