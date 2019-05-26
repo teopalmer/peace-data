@@ -11,20 +11,21 @@ class SetMenu(cocos.menu.Menu):
         super().__init__("Peace Data quest")
         menus = []
 
-        menus.append(cocos.menu.ToggleMenuItem("Показ FPS: ", self.on_show_fps, director.show_FPS)) # Пример переключателя
-        menus[0].y = 80
-
-        menus.append(cocos.menu.MenuItem("Выход из игры", self.on_quit))
-        menus[1].y = 40
-
-        menus.append(cocos.menu.MenuItem("Назад", self.on_back))
-        menus[2].y = 20
-
         menus.append(cocos.menu.MenuItem("Sound on", self.sound_on))
-        menus[3].y = 15
+        menus[0].y = 70
 
         menus.append(cocos.menu.MenuItem("Sound off", self.sound_off))
-        menus[4].y = 10
+        menus[1].y = 30
+
+        menus.append(cocos.menu.ToggleMenuItem("Показ FPS: ", self.on_show_fps, director.show_FPS)) # Пример переключателя
+        menus[2].y = 10
+
+        menus.append(cocos.menu.MenuItem("Выход из игры", self.on_quit))
+        menus[3].y = 0
+
+        menus.append(cocos.menu.MenuItem("Назад", self.on_back))
+        menus[4].y = -15
+
 
         self.create_menu(menus, cocos.menu.shake(), cocos.menu.shake_back()) # Эффект встряхивания
 
