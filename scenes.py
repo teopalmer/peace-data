@@ -47,7 +47,13 @@ def box_scene(main):
     """Создание инвентаря"""
     Scene = cocos.scene.Scene()
     Scene.add(inventory.Inventory(main))
+    scarf = cocos.sprite.Sprite("Resources/scarf.PNG", scale=0.4, opacity=0)
+    if inventory.inv["scarf"] == 1:
+        scarf.opacity = 255
+    scarf.position = 400, 400
+    Scene.add(scarf)
     return Scene
+
 def set_scene(main):
     """Создание настроек"""
     Scene = cocos.scene.Scene()
