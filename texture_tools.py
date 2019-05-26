@@ -1,4 +1,5 @@
 import cocos
+from inventory import inv
 
 class StaticImage(cocos.sprite.Sprite):
     """Установка статического изображения по координатам"""
@@ -10,3 +11,13 @@ class StaticImage(cocos.sprite.Sprite):
 
         super().__init__(self.texture)
         self.position = self.w, self.h
+'''
+class DinamicImage():
+    """Установка препятствий, для котрых нужен предмет"""
+    def __init__(self, name, pickurl, x, y):
+
+        self.texture = texture
+        self.x = x
+        self.y = y
+        self.obj = cocos.sprite.Sprite(self.texture, self.x, self.y)
+'''

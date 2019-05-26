@@ -109,7 +109,6 @@ if __name__ == '__main__':
     lvl2.add(lvl2_to_lvl3)
     lvl2.add(small_menu_2)
 
-
     # Объекты для сцены (уровня) №3
     lvl3.add(lvl3_to_lvl2)
     lvl3.add(lvl3_to_final)
