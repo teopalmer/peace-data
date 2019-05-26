@@ -47,8 +47,7 @@ class ItemInv(cocos.layer.Layer):
         if self.mouse_on_sprite(x, y):
             inv[self.name] = 1
             self.delete_from_screen()
-            #self.adding()
-            print(inv)
+            """Оконо сообщения о предмете"""
 
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(1)

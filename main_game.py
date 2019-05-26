@@ -1,7 +1,7 @@
 import menu
 import transitions
 import small_menu
-from texture_tools import StaticImage
+from texture_tools import StaticImage, DinamicImage
 from scenes import lvl1_scene, lvl2_scene, lvl3_scene, final_scene
 from scenes import box_scene, set_scene
 import cocos
@@ -95,7 +95,8 @@ if __name__ == '__main__':
     """Инициализация объектов"""
     ufo = UFOLayer()
     scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
-    #acid =
+    acid = DinamicImage(250, 95, "Resources/acid.png",
+    410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1
@@ -110,6 +111,7 @@ if __name__ == '__main__':
     lvl2.add(small_menu_2)
 
     # Объекты для сцены (уровня) №3
+    lvl3.add(acid)
     lvl3.add(lvl3_to_lvl2)
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
