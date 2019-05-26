@@ -38,7 +38,7 @@ class Settings(cocos.menu.Menu):
         menus = []
         
         menus.append(cocos.menu.MenuItem("                                                     ", self.on_settings))
-        menus[0].y = -300
+        menus[0].y = -320
         
         self.create_menu(menus, cocos.menu.shake(), cocos.menu.shake_back()) 
 
