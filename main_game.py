@@ -1,7 +1,9 @@
 import menu
 import transitions
 import small_menu
-from scenes import lvl1_scene, lvl2_scene, lvl3_scene, final_scene, box_scene,set_scene
+from texture_tools import StaticImage
+from scenes import lvl1_scene, lvl2_scene, lvl3_scene, final_scene
+from scenes import box_scene, set_scene
 import cocos
 from cocos.director import director
 from pyglet.window import key, mouse
@@ -52,11 +54,6 @@ if __name__ == '__main__':
     keyboard = key.KeyStateHandler() # Инициализация клавиатуры
     director.window.push_handlers(keyboard)
 
-    """Инициализация объектов"""
-    ufo = UFOLayer()
-    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
-    #acid =
-
     """Создание переходов и инициализация сцен"""
     lvl1 = lvl1_scene()
     lvl3 = lvl3_scene()
@@ -64,7 +61,12 @@ if __name__ == '__main__':
     final = final_scene()
 
     """Инициализация меню основной сценой"""
-    Menu = cocos.scene.Scene(menu.MainMenu(lvl1))
+    Menu = cocos.scene.Scene()
+    background_layer = StaticImage("Resources/main_menu_bg.PNG", 1920/2, 1080/2)
+    set_m = set_scene(Menu)
+    Menu.add(background_layer)
+    Menu.add(menu.Settings(set_m))
+    Menu.add(menu.MainMenu(lvl1))
 
     """Иницилизация сцен инвентаря и настроек"""
     set1 = set_scene(lvl1)
@@ -90,6 +92,10 @@ if __name__ == '__main__':
     lvl3_to_lvl2 = transitions.ArrowDown(830, 57, lvl2)
     lvl3_to_final = transitions.ArrowRight(1111, 777, final)
 
+    """Инициализация объектов"""
+    ufo = UFOLayer()
+    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
+    #acid =
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1

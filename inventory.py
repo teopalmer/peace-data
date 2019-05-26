@@ -10,12 +10,13 @@ class Inventory(cocos.menu.Menu):
     def __init__(self,main_game_scene):
 
         self.main_game_scene = main_game_scene
-        super().__init__("Peace Data quest")
+        super().__init__()
 
         menus = []
 
         menus.append(cocos.menu.MenuItem("Назад", self.on_back))
-        menus[0].y = 40
+        menus[0].x = 100
+        menus[0].y = -450
 
         self.create_menu(menus, cocos.menu.shake(), cocos.menu.shake_back()) # Эффект встряхивания
 
@@ -46,6 +47,7 @@ class ItemInv(cocos.layer.Layer):
         if self.mouse_on_sprite(x, y):
             inv[self.name] = 1
             self.delete_from_screen()
+            #self.adding()
             print(inv)
 
     def delete_from_screen(self):
