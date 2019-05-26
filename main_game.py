@@ -1,6 +1,7 @@
 import menu
 import transitions
 import small_menu
+from texture_tools import StaticImage
 from scenes import lvl1_scene, lvl2_scene, lvl3_scene, final_scene, box_scene,set_scene
 import cocos
 from cocos.director import director
@@ -60,12 +61,14 @@ if __name__ == '__main__':
     lvl3 = lvl3_scene()
     lvl2 = lvl2_scene()
     final = final_scene()
-    
-    
-    """Инициализация меню основной сценой"""
-    Menu = cocos.scene.Scene(menu.MainMenu(lvl1))
-    set_m = set_scene(Menu)
-    Menu.add(menu.Settings(set_m))
+
+    """Инициализация меню основной сценой""" 
+    Menu = cocos.scene.Scene() 
+    background_layer = StaticImage("Resources/main_menu_bg.PNG", 1920/2, 1080/2) 
+    set_m = set_scene(Menu) 
+    Menu.add(background_layer) 
+    Menu.add(menu.Settings(set_m)) 
+    Menu.add(menu.MainMenu(lvl1))
 
     """Иницилизация сцен инвентаря и настроек"""
     set1 = set_scene(lvl1)
