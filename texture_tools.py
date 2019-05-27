@@ -19,7 +19,6 @@ class StaticImage(cocos.sprite.Sprite):
         self.scale = scale
 
 
-
 class DinamicImage(cocos.layer.Layer):
     """Установка препятствий, для которых нужен предмет"""
     is_event_handler = True
@@ -71,6 +70,7 @@ class MessageAcionLayer(cocos.layer.Layer):
     Объект перехода на следующий уровень
     Направление: напрво
     """
+    
     is_event_handler = True
     def __init__(self, x, y, texture, message, pos_x, pos_y, font_size):
         self.w = x
@@ -80,6 +80,7 @@ class MessageAcionLayer(cocos.layer.Layer):
         self.texture = texture
         self.message = message
         self.font_size = font_size
+        self.flag = True
         super().__init__()
 
         # Загрузка и установка изображения

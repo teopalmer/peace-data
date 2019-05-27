@@ -1,7 +1,7 @@
 import menu
 import transitions
 import small_menu
-from texture_tools import StaticImage, DinamicImage, MessageAcionLayer
+from texture_tools import StaticImage, DinamicImage, MessageAcionLayer, DinamicImageSafe
 from scenes import lvl1_scene, lvl1_locker, lvl1_empty_locker, lvl2_scene, lvl3_scene, final_scene
 from scenes import box_scene, set_scene
 import cocos
@@ -83,11 +83,13 @@ if __name__ == '__main__':
     resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh", 287, 120, 40)
 
     # Взаимодействие с объектами 3 уровня
-    safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe", 287, 120, 40)
+   
+    #safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe", 287, 120, 40) <- тестовое сообщение (можно удалить и заменить по аналогии на шарф)
     acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
     
 
     scarf = ItemInv(560, 515, "Resources/scarf.png", "scarf")
+ 
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.png", "acid")
     n = Naruto()
