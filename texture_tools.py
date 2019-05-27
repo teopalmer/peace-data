@@ -20,7 +20,7 @@ class MessageBox(cocos.layer.Layer):
     """Всплывающие сообщения"""
     is_event_handler = True
     def __init__(self, x, y, text):
-        self.texture = "Resources/IMG_0103.PNG"
+        self.texture = "Resources/message.PNG"
         self.x = x
         self.y = y
         self.text = text
@@ -31,7 +31,7 @@ class MessageBox(cocos.layer.Layer):
         self.add(self.obj)
         self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = 100)
         self.add(self.obj_label)
-        
+
     def mouse_on_sprite(self, x, y):
         if (x < (self.obj.x + self.obj.width) and x > self.obj.x and y < (self.obj.y + self.obj.height) and y > self.obj.y):
             return True
