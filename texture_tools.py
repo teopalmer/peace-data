@@ -18,7 +18,7 @@ class StaticImage(cocos.sprite.Sprite):
 
 
 class DinamicImage(cocos.layer.Layer):
-    """Установка препятствий, для котрых нужен предмет"""
+    """Установка препятствий, для которых нужен предмет"""
     is_event_handler = True
     def __init__(self,  xb, yb, pickurlb, xg, yg, pickurlg, name):
         self.name = name
