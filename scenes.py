@@ -8,7 +8,7 @@ def lvl1_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/first_lvl.png", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/first_lvl.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -28,7 +28,7 @@ def lvl1_empty_locker():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/Empty_locker.png", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/Empty_locker.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -38,7 +38,7 @@ def lvl2_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/second_lvl.png", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/second_lvl.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -48,7 +48,7 @@ def lvl3_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/third_lvl.png", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/third_lvl.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -76,7 +76,7 @@ def box_scene(main):
 def set_scene(main):
     """Создание настроек"""
     Scene = cocos.scene.Scene()
-    
+
     background_layer = StaticImage("Resources/set_bg.png", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
     Scene.add(tools.SetMenu(main))

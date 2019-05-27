@@ -42,7 +42,7 @@ class MessageBox(cocos.layer.Layer):
 
         self.obj_c = cocos.sprite.Sprite("Resources/message_action.png", anchor=(0,0))
         self.obj_c.position = 170, 30
-        self.obj = cocos.sprite.Sprite("Resources/message.png", anchor = (0, 0))
+        self.obj = cocos.sprite.Sprite("Resources/message.PNG", anchor = (0, 0))
         self.obj.position = 170, 30
         self.add(self.obj)
         self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = self.size)

@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     """Инициализация меню основной сценой"""
     Menu = cocos.scene.Scene()
-    background_layer = StaticImage("Resources/main_menu_bg.png", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/main_menu_bg.PNG", 1920/2, 1080/2, 1)
     set_m = set_scene(Menu)
     Menu.add(background_layer)
     Menu.add(menu.Settings(set_m))
@@ -83,15 +83,15 @@ if __name__ == '__main__':
     resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh", 287, 120, 40)
 
     # Взаимодействие с объектами 3 уровня
-   
+
     #safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe", 287, 120, 40) <- тестовое сообщение (можно удалить и заменить по аналогии на шарф)
     acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
-    
 
-    scarf = ItemInv(560, 515, "Resources/scarf.png", "scarf")
+
+    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
     code_paper = StaticImage("Resources/code_paper.png", 750, 175,0.15) # <-- точные координаты и scale
     acid = DinamicImage(250, 95, "Resources/acid.png",
-    410, 782, "Resources/Scarf_on_pipe.png", "acid")
+    410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
     n = Naruto()
     message1 = MessageBox("lvl1", 40, 300, 100)
 
@@ -104,8 +104,8 @@ if __name__ == '__main__':
     lvl1.add(lvl1_to_empty)
     lvl1.add(lvl1_to_lvl2)
     lvl1.add(small_menu_1)
-    lvl1.add(bench) 
-    lvl1.add(ward) 
+    lvl1.add(bench)
+    lvl1.add(ward)
     lvl1.add(locked)
     lvl1.add(locked2)
     lvl1.add(mirror)
@@ -121,11 +121,11 @@ if __name__ == '__main__':
     lvl2.add(small_menu_2)
     lvl2.add(spider)
     lvl2.add(otvertka)
-    lvl2.add(boots) 
+    lvl2.add(boots)
     lvl2.add(boots2)
     lvl2.add(garbage_box)
     lvl2.add(plakat)
-    lvl2.add(resh) 
+    lvl2.add(resh)
 
     # Объекты для сцены (уровня) №3
     lvl3.add(acid)
@@ -134,6 +134,6 @@ if __name__ == '__main__':
     lvl3.add(small_menu_3)
    # lvl3.add(safe) <--- safe
     lvl3.add(acid_ac)
-    
+
     """Запуск игры с главного меню"""
     director.run(Menu)
