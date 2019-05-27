@@ -2,8 +2,11 @@ import cocos
 from inventory import inv
 from pyglet.window import mouse
 
-global acid
+global acid, sms
 barr = {"acid" : 1}
+sms = {"scarf" : "О, этот шарф может мне пригодиться, пожалуй заберу его",
+       "lvl1" : 'Черт! Опаздываю на физру. Быстрее переодеваться' +
+        '--Звук закрытия двери--' + '<k. Этого еще не хватало'}
 
 class StaticImage(cocos.sprite.Sprite):
     """Установка статического изображения по координатам"""
@@ -20,17 +23,20 @@ class StaticImage(cocos.sprite.Sprite):
 class MessageBox(cocos.layer.Layer):
     """Всплывающие сообщения"""
     is_event_handler = True
-    def __init__(self, x, y, text):
+    def __init__(self, name, size):
         self.texture = "Resources/message.PNG"
-        self.x = x
-        self.y = y
-        self.text = text
+        self.xxx = 970
+        self.yyy = 130
+        self.name = name
+        self.text = sms[self.name]
         super().__init__()
 
-        self.obj = cocos.sprite.Sprite(self.texture, anchor = (0, 0))
-        self.obj.position = self.x, self.y
+        self.obj = cocos.sprite.Sprite(self.texture)
+        self.obj.position = self.xxx, self.yyy
+        self.obj.anchor = (0, 0)
         self.add(self.obj)
-        self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = 100)
+        self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = size)
+        self.obj_label.position = 300, self.yyy/2 + 20
         self.add(self.obj_label)
 
     def mouse_on_sprite(self, x, y):

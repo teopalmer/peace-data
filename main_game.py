@@ -123,7 +123,7 @@ if __name__ == '__main__':
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
     n = Naruto()
-    message1 = MessageBox(0, 0, 'HUI')
+    message1 = MessageBox("lvl1", 40)
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1
@@ -134,6 +134,7 @@ if __name__ == '__main__':
     lvl1.add(lvl1_to_empty)
     lvl1.add(lvl1_to_lvl2)
     lvl1.add(small_menu_1)
+
 
     #Объекты для сцены (уровня) со шкафом
     lvl_locker.add(locker_to_lvl1)
