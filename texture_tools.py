@@ -74,11 +74,14 @@ class MessageAcionLayer(cocos.layer.Layer):
     Направление: напрво
     """
     is_event_handler = True
-    def __init__(self, x, y, texture, message):
+    def __init__(self, x, y, texture, message, pos_x, pos_y, font_size):
         self.w = x
         self.h = y
+        self.pos_x = pos_x
+        self.pos_y = pos_y
         self.texture = texture
         self.message = message
+        self.font_size = font_size
         super().__init__()
 
         # Загрузка и установка изображения
@@ -96,4 +99,4 @@ class MessageAcionLayer(cocos.layer.Layer):
         """Метод осуществления перехода к выбранной сцене"""
         if button & mouse.LEFT:
             if self.mouse_on_sprite(x,y):
-                self.add(MessageBox(self.message, 25))
+                self.add(MessageBox(self.message, self.font_size, self.pos_x, self.pos_y))

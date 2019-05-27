@@ -67,31 +67,31 @@ if __name__ == '__main__':
 
     """Инициализация объектов"""
     # Взаимодействие с объектами 1 уровня
-    bench = MessageAcionLayer(700, 280, "Resources/bench_action.png", "bench")
-    ward = MessageAcionLayer(840, 782, "Resources/ward_action.png", "ward")
-    locked = MessageAcionLayer(1460, 150, "Resources/locked_action.png", "locked")
-    locked2 = MessageAcionLayer(1600, 420, "Resources/locked2_action.png", "locked2")
-    mirror = MessageAcionLayer(0, 325, "Resources/mirror_action.png", "mirror")
+    bench = MessageAcionLayer(700, 280, "Resources/bench_action.png", "bench", 487, 120, 40)
+    ward = MessageAcionLayer(840, 782, "Resources/ward_action.png", "ward", 487, 120, 40)
+    locked = MessageAcionLayer(1460, 150, "Resources/locked_action.png", "locked", 787, 120, 40)
+    locked2 = MessageAcionLayer(1600, 420, "Resources/locked2_action.png", "locked2", 787, 120, 40)
+    mirror = MessageAcionLayer(0, 325, "Resources/mirror_action.png", "mirror", 687, 120, 40)
 
     # Взаимодействие с объектами 2 уровня
-    spider = MessageAcionLayer(415, 65, "Resources/spider_action.png", "spider")
-    otvertka = MessageAcionLayer(1148, 764, "Resources/otvertka_action.png", "otvertka")
-    boots = MessageAcionLayer(1130, 247, "Resources/boots_action.png", "boots")
-    boots2 = MessageAcionLayer(1455, 595, "Resources/boots2_action.png", "boots2")
-    garbage_box = MessageAcionLayer(1355, 33, "Resources/garbage_box_action.png", "garbage_box")
-    plakat = MessageAcionLayer(700, 433, "Resources/plakat_action.png", "plakat")
-    resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh")
+    spider = MessageAcionLayer(415, 65, "Resources/spider_action.png", "spider", 600, 120, 40)
+    otvertka = MessageAcionLayer(1148, 764, "Resources/otvertka_action.png", "otvertka", 680, 120, 40)
+    boots = MessageAcionLayer(1130, 247, "Resources/boots_action.png", "boots", 720, 120, 40)
+    boots2 = MessageAcionLayer(1455, 595, "Resources/boots2_action.png", "boots2", 720, 120, 40)
+    garbage_box = MessageAcionLayer(1355, 33, "Resources/garbage_box_action.png", "garbage_box", 430, 120, 40)
+    plakat = MessageAcionLayer(700, 433, "Resources/plakat_action.png", "plakat", 700, 120, 40)
+    resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh", 287, 120, 40)
 
     # Взаимодействие с объектами 3 уровня
-    safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe")
-    acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac")
+    safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe", 287, 120, 40)
+    acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
     
 
     scarf = ItemInv(560, 515, "Resources/scarf.png", "scarf")
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.png", "acid")
     n = Naruto()
-    message1 = MessageBox("lvl1", 40)
+    message1 = MessageBox("lvl1", 40, 300, 100)
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1

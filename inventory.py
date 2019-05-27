@@ -1,6 +1,7 @@
 import cocos
 from cocos.director import director
 from cocos.scenes import FadeTransition as animation
+from pyglet.window import mouse
 
 global inv
 inv = {"scarf" : 0, "paper" : 0}
@@ -10,52 +11,58 @@ sms = {"scarf" : "О, этот шарф может мне пригодиться
         "mirror": 'Не время себя разглядывать!',
         "ward": ' Дёрну за крючок — стена отвалится',
         "locked": 'Походу закрыто...',
-        "locked": 'Заперто!',
-        "bench": 'Сколько тыж повидала на своём веку...',
+        "locked2": 'Заперто!',
+        "bench": 'Сколько же ты повидала на своём веку...',
         "spider": 'Похоже мы тут одни, дружище',
         "boots": 'Не мой размерчик',
         "boots2": 'Да не, фигня какая-то',
         "otvertka": 'Ну и нафиг она мне сдалась?',
         "garbage_box": 'Не, ну это я точно руками трогать не буду',
-        "plakat": 'Так, шо тут у нас...',
+        "plakat": 'Такс, шо тут у нас...',
         "resh": 'Кондиционер, трехкомнатный лофт — все как в сказке!',
-        "acid_ac": 'Жижа какая-то.. А вдруг кислота? Не-е, так рисковать я не собираюсь..',
+        "acid_ac": 'Ну ёмаё! К лестнице не теперь подойти...',
         "safe": 'Опа, что же там такое? Может быть экзамен по проге?'}
 
 class MessageBox(cocos.layer.Layer):
     """Всплывающие сообщения"""
     is_event_handler = True
-    def __init__(self, name, size):
-        self.texture = "Resources/message.png"
-        self.xxx = 970
-        self.yyy = 130
+    def __init__(self, name, size, w, h):
+        self.w = w
+        self.h = h
+        self.flag = True
         self.name = name
         self.text = sms[self.name]
+        self.size = size
         super().__init__()
 
-        self.obj = cocos.sprite.Sprite(self.texture)
-        self.obj.position = self.xxx, self.yyy
-        self.obj.anchor = (0, 0)
+        self.obj_c = cocos.sprite.Sprite("Resources/message_action.png", anchor=(0,0))
+        self.obj_c.position = 170, 30
+        self.obj = cocos.sprite.Sprite("Resources/message.png", anchor = (0, 0))
+        self.obj.position = 170, 30
         self.add(self.obj)
-        self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = size)
-        self.obj_label.position = 300, self.yyy/2 + 20
+        self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = self.size)
+        self.obj_label.position = self.w, self.h
         self.add(self.obj_label)
 
     def mouse_on_sprite(self, x, y):
-        if (x < (self.obj.x + self.obj.width) and x > self.obj.x and y < (self.obj.y + self.obj.height) and y > self.obj.y):
+        """Метод проверки курсора на попадание по объекту"""
+        if (x < (self.obj_c.x + self.obj_c.width) and x > self.obj_c.x and y < (self.obj_c.y + self.obj_c.height) and y > self.obj_c.y):
             return True
         return False
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if self.mouse_on_sprite(x, y):
-            self.delete_from_screen()
+        if button & mouse.LEFT:
+            if self.mouse_on_sprite(x, y) and self.flag:
+                self.flag = False
+                self.delete_from_screen()
 
     def delete_from_screen(self):
-        hide = cocos.actions.FadeOut(3)
+        hide = cocos.actions.FadeOut(1)
         self.obj.do(hide)
         self.obj_label.do(hide)
-        #self.text = ""
-        #self.add(self.obj_label)
+        self.kill(obj)
+        self.kill(obj_label)
+        self.kill(obj_c)
 
 class Inventory(cocos.menu.Menu):
 
@@ -96,11 +103,12 @@ class ItemInv(cocos.layer.Layer):
         return False
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if self.mouse_on_sprite(x, y):
-            inv[self.name] = 1
-            self.delete_from_screen()
-            self.add(MessageBox("scarf", 25))
-            """Оконо сообщения о предмете"""
+        if button & mouse.LEFT:
+            if self.mouse_on_sprite(x, y):
+                inv[self.name] = 1
+                self.delete_from_screen()
+                self.add(MessageBox("scarf", 40, 300, 120))
+                """Оконо сообщения о предмете"""
 
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(1)
