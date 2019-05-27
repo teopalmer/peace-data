@@ -42,7 +42,7 @@ class BtnLocker(cocos.layer.Layer):
 class BtnLockerBack(cocos.layer.Layer):
     """
     Объект перехода на следующий уровень
-    Направление: вниз
+    Направление: из шкафа
     """
     is_event_handler = True
     def __init__(self, x, y, scene):
@@ -52,7 +52,7 @@ class BtnLockerBack(cocos.layer.Layer):
         super().__init__()
 
         # Загрузка и установка изображения
-        self.obj = cocos.sprite.Sprite("Resources/arrow_down_from_locker.png", anchor = (0,0), scale = 2.3)
+        self.obj = cocos.sprite.Sprite("Resources/arrow_down_from_locker3.png", anchor = (0,0), scale = 0.7)
         self.obj.position = self.w, self.h
         self.add(self.obj)
 

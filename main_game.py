@@ -93,9 +93,9 @@ if __name__ == '__main__':
     lvl1_to_empty = transitions.BtnLocker(1600, 150, lvl_empty)
 
     #Переходы для уровня со шкафом
-    locker_to_lvl1 = transitions.BtnLockerBack(680, 30, lvl1)
+    locker_to_lvl1 = transitions.BtnLockerBack(880, 30, lvl1)
     locker_to_lvl11 = transitions.BtnLockerBack(830, 30, lvl1)
-    empty_to_lvl1 = transitions.BtnLockerBack(680, 65, lvl1)
+    empty_to_lvl1 = transitions.BtnLockerBack(880, 65, lvl1)
     empty_to_lvl11 = transitions.BtnLockerBack(830, 65, lvl1)
 
     #Переходы для 2 уровня
@@ -124,10 +124,10 @@ if __name__ == '__main__':
 
     #Объекты для сцены (уровня) со шкафом
     lvl_locker.add(locker_to_lvl1)
-    lvl_locker.add(locker_to_lvl11)
+    #lvl_locker.add(locker_to_lvl11)
     lvl_empty.add(n)
     lvl_empty.add(empty_to_lvl1)
-    lvl_empty.add(empty_to_lvl11)
+    #lvl_empty.add(empty_to_lvl11)
 
     # Объекты для сцены (уровня) №2
     lvl2.add(lvl2_to_lvl1)
