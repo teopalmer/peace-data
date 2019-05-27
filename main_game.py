@@ -10,7 +10,6 @@ from pyglet.window import mouse
 import pyglet
 from inventory import ItemInv, Naruto, MessageBox
 
-
 if __name__ == '__main__':
     director.init(width=1920, height=1080, caption="Cocos test", autoscale=True, resizable=True)
 
