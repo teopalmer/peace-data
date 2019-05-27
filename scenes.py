@@ -77,5 +77,8 @@ def box_scene(main):
 def set_scene(main):
     """Создание настроек"""
     Scene = cocos.scene.Scene()
+    
+    background_layer = StaticImage("Resources/set_bg.png", 1920/2, 1080/2, 1)
+    Scene.add(background_layer)
     Scene.add(tools.SetMenu(main))
     return Scene
