@@ -68,26 +68,26 @@ if __name__ == '__main__':
 
     """Инициализация объектов"""
     # Взаимодействие с объектами 1 уровня
-    bench = MessageAcionLayer(700, 280, "Resources/bench_action.png")
-    ward = MessageAcionLayer(840, 782, "Resources/ward_action.png")
-    locked = MessageAcionLayer(1460, 150, "Resources/locked_action.png")
-    locked2 = MessageAcionLayer(1600, 420, "Resources/locked2_action.png")
-    mirror = MessageAcionLayer(0, 325, "Resources/mirror_action.png")
+    bench = MessageAcionLayer(700, 280, "Resources/bench_action.png", "bench")
+    ward = MessageAcionLayer(840, 782, "Resources/ward_action.png", "ward")
+    locked = MessageAcionLayer(1460, 150, "Resources/locked_action.png", "locked")
+    locked2 = MessageAcionLayer(1600, 420, "Resources/locked2_action.png", "locked2")
+    mirror = MessageAcionLayer(0, 325, "Resources/mirror_action.png", "mirror")
 
     # Взаимодействие с объектами 2 уровня
-    spider = MessageAcionLayer(415, 65, "Resources/spider_action.png")
-    otvertka = MessageAcionLayer(1148, 764, "Resources/otvertka_action.png")
-    boots = MessageAcionLayer(1130, 247, "Resources/boots_action.png")
-    boots2 = MessageAcionLayer(1455, 595, "Resources/boots2_action.png")
-    garbage_box = MessageAcionLayer(1355, 33, "Resources/garbage_box_action.png")
-    plakat = MessageAcionLayer(700, 433, "Resources/plakat_action.png")
-    resh = MessageAcionLayer(315, 240, "Resources/resh_action.png")
+    spider = MessageAcionLayer(415, 65, "Resources/spider_action.png", "spider")
+    otvertka = MessageAcionLayer(1148, 764, "Resources/otvertka_action.png", "otvertka")
+    boots = MessageAcionLayer(1130, 247, "Resources/boots_action.png", "boots")
+    boots2 = MessageAcionLayer(1455, 595, "Resources/boots2_action.png", "boots2")
+    garbage_box = MessageAcionLayer(1355, 33, "Resources/garbage_box_action.png", "garbage_box")
+    plakat = MessageAcionLayer(700, 433, "Resources/plakat_action.png", "plakat")
+    resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh")
 
     # Взаимодействие с объектами 3 уровня
-    safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png")
-    acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png")
+    safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe")
+    acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac")
     
-    ufo = UFOLayer()
+
     scarf = ItemInv(560, 515, "Resources/scarf.png", "scarf")
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.png", "acid")
@@ -96,7 +96,6 @@ if __name__ == '__main__':
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1
-    lvl1.add(ufo)
     lvl1.add(scarf)
     lvl1.add(message1)
     lvl1.add(lvl1_to_locker)

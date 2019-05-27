@@ -1,5 +1,5 @@
 import cocos
-from inventory import inv, sms
+from inventory import inv, sms, MessageBox
 from pyglet.window import mouse
 
 global acid
@@ -74,10 +74,11 @@ class MessageAcionLayer(cocos.layer.Layer):
     Направление: напрво
     """
     is_event_handler = True
-    def __init__(self, x, y, texture):
+    def __init__(self, x, y, texture, message):
         self.w = x
         self.h = y
         self.texture = texture
+        self.message = message
         super().__init__()
 
         # Загрузка и установка изображения
@@ -95,4 +96,4 @@ class MessageAcionLayer(cocos.layer.Layer):
         """Метод осуществления перехода к выбранной сцене"""
         if button & mouse.LEFT:
             if self.mouse_on_sprite(x,y):
-                """Message box action"""
+                self.add(MessageBox(self.message, 25))
