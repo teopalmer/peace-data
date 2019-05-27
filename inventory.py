@@ -1,6 +1,7 @@
 import cocos
 from cocos.director import director
 from cocos.scenes import FadeTransition as animation
+from texture_tools import MessageBox, sms
 
 global inv
 inv = {"scarf" : 0, "paper" : 0}
@@ -47,6 +48,7 @@ class ItemInv(cocos.layer.Layer):
         if self.mouse_on_sprite(x, y):
             inv[self.name] = 1
             self.delete_from_screen()
+            self.add(MessageBox("scarf", 25))
             """Оконо сообщения о предмете"""
 
     def delete_from_screen(self):
