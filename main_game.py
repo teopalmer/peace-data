@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
     """Инициализация меню основной сценой"""
     Menu = cocos.scene.Scene()
-    background_layer = StaticImage("Resources/main_menu_bg.png", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/main_menu_bg.PNG", 1920/2, 1080/2, 1)
     set_m = set_scene(Menu)
     Menu.add(background_layer)
     Menu.add(menu.Settings(set_m))
