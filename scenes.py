@@ -58,9 +58,8 @@ def final_scene():
 
     Scene = cocos.scene.Scene()
 
-    label = cocos.text.Label("The end.", font_size=32, anchor_x="center", anchor_y="center")
-    label.position = 1920/2, 1080/2
-    Scene.add(label)
+    background_layer = StaticImage("Resources/final.png", 1920/2, 1080/2, 1)
+    Scene.add(background_layer)
 
     return Scene
 
