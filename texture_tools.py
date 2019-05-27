@@ -3,7 +3,7 @@ from inventory import inv, sms, MessageBox
 from pyglet.window import mouse
 
 global acid
-barr = {"acid" : 1}
+barr = {"acid" : 1, "key" : 1, "code_paper":1}
 
 
 class StaticImage(cocos.sprite.Sprite):
@@ -56,9 +56,7 @@ class DinamicImage(cocos.layer.Layer):
                     self.new_sprite_pipe()
                     barr[self.name] = 0
                 else:
-                    """
-                    Здесь должен быть код для окна сообщения
-                    """
+                    MessageBox("scarf_warning", 40, 400, 120)
 
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(3)

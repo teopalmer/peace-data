@@ -3,7 +3,7 @@ from cocos.director import director
 from pyglet.window import mouse
 from cocos.scenes import FadeBLTransition as animation # Анимация переход
 from cocos.scenes import FadeTransition as ending
-from texture_tools import barr
+from texture_tools import barr, MessageBox
 
 class BtnLocker(cocos.layer.Layer):
     """
@@ -142,9 +142,14 @@ class ArrowRight(cocos.layer.Layer):
     def on_mouse_press(self, x, y, button, modifiers):
         """Метод осуществления перехода к выбранной сцене"""
         if button & mouse.LEFT:
-            if self.mouse_on_sprite(x,y) and barr['acid'] == 0:
-                director.replace(ending(self.scene, duration = 2.5))
-
+            if self.mouse_on_sprite(x,y):
+                if barr['acid'] == 0:
+                   if barr['key'] == 0:
+                        director.replace(ending(self.scene, duration = 2.5))
+                   else:
+                        self.add(MessageBox("key_warning", 40, 400, 120))
+                else:
+                    self.add(MessageBox("scarf_warning", 40, 400, 120))
 class ArrowLeft(cocos.layer.Layer):
     """
     Объект перехода на следующий уровень

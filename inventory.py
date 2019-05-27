@@ -4,10 +4,15 @@ from cocos.scenes import FadeTransition as animation
 from pyglet.window import mouse
 
 global inv
-inv = {"scarf" : 0, "paper" : 0}
+inv = {"scarf" : 0, "paper" : 0, "key" : 0}
 global sms
-sms = {"scarf" : "О, этот шарф может мне пригодиться, пожалуй заберу его",
-       "lvl1" : 'Черт! *Звук закрытия двери*' + 'Этого еще не хватало',
+sms = {
+        "key_warning": "              Дверь, однако заперта!",
+        "paper":"          Хммм, похоже на цифровой код...",
+        "key" : "      Опять облом! Ну, хотя бы выберусь от сюда",
+        "scarf" : "О, этот шарф может мне пригодиться, пожалуй заберу его",
+        "scarf_warning" : "Ну и как я её починю? Может замотать её чем?",
+        "lvl1" : 'Черт! *Звук закрытия двери*' + 'Этого еще не хватало',
         "mirror": 'Не время себя разглядывать!',
         "ward": ' Дёрну за крючок — стена отвалится',
         "locked": 'Походу закрыто...',
@@ -107,8 +112,7 @@ class ItemInv(cocos.layer.Layer):
             if self.mouse_on_sprite(x, y):
                 inv[self.name] = 1
                 self.delete_from_screen()
-                self.add(MessageBox("scarf", 40, 300, 120))
-                """Оконо сообщения о предмете"""
+                self.add(MessageBox(self.name, 40, 300, 120))
 
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(1)
