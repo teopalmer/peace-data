@@ -8,7 +8,7 @@ class SetMenu(cocos.menu.Menu):
     is_event_handler = True
     def __init__(self,main_game_scene):
         self.main_game_scene = main_game_scene
-        super().__init__("Peace Data quest")
+        super().__init__()
         menus = []
 
         menus.append(cocos.menu.MenuItem("Sound on", self.sound_on))
