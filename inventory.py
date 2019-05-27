@@ -1,7 +1,8 @@
 import cocos
 from cocos.director import director
 from cocos.scenes import FadeTransition as animation
-from texture_tools import MessageBox, sms
+import texture_tools
+from texture_tools import *
 
 global inv
 inv = {"scarf" : 0, "paper" : 0}
