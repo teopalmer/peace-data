@@ -1,7 +1,7 @@
 import menu
 import transitions
 import small_menu
-from texture_tools import StaticImage, DinamicImage
+from texture_tools import StaticImage, DinamicImage, MessageBox
 from scenes import lvl1_scene, lvl1_locker, lvl1_empty_locker, lvl2_scene, lvl3_scene, final_scene
 from scenes import box_scene, set_scene
 import cocos
@@ -112,11 +112,13 @@ if __name__ == '__main__':
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
     n = Naruto()
+    message1 = MessageBox(0, 0, 'HUI')
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1
     lvl1.add(ufo)
     lvl1.add(scarf)
+    lvl1.add(message1)
     lvl1.add(lvl1_to_locker)
     lvl1.add(lvl1_to_empty)
     lvl1.add(lvl1_to_lvl2)
