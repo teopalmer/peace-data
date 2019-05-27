@@ -52,3 +52,37 @@ class ItemInv(cocos.layer.Layer):
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(1)
         self.obj.do(hide)
+
+
+class Naruto(cocos.layer.Layer):
+    is_event_handler = True
+    def __init__(self):
+        self.x = 0
+        self.y = 0
+        self.count = 0
+        self.pickurl = "Resources/Kakashi.png"
+
+        super().__init__()
+
+        white = cocos.sprite.Sprite("Resources/button_locker.png", anchor = (-1500, -600), opacity = 255)
+        white.position = 300, 200
+        self.obj = cocos.sprite.Sprite(self.pickurl, anchor = (-800, -150))
+        self.obj.opacity = 0
+        self.obj.scale = 0.8
+        self.obj.position = self.x, self.y
+        self.add(self.obj)
+
+    def mouse_on_sprite(self, x, y):
+        if (x < (self.obj.x + self.obj.width) and x > self.obj.x and y < (self.obj.y + self.obj.height) and y > self.obj.y):
+            return True
+        return False
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        if self.mouse_on_sprite(x, y):
+            #if self.count == 0:
+            self.new_sprite_pipe()
+            #self.count = 1
+
+    def new_sprite_pipe(self):
+        show = cocos.actions.FadeIn(0.3)
+        self.obj.do(show)

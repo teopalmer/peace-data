@@ -8,7 +8,27 @@ def lvl1_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/first_lvl.PNG", 1920/2, 1080/2)
+    background_layer = StaticImage("Resources/first_lvl.PNG", 1920/2, 1080/2, 1)
+    Scene.add(background_layer)
+
+    return Scene
+
+def lvl1_locker():
+    """Создание игровой сцены со шкафом"""
+
+    Scene = cocos.scene.Scene()
+
+    background_layer = StaticImage("Resources/locker.png", 1920/2, 1080/2, 0.65)
+    Scene.add(background_layer)
+
+    return Scene
+
+def lvl1_empty_locker():
+    """Создание игровой сцены со шкафом"""
+
+    Scene = cocos.scene.Scene()
+
+    background_layer = StaticImage("Resources/Empty_locker.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -18,7 +38,7 @@ def lvl2_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/second_lvl.PNG", 1920/2, 1080/2)
+    background_layer = StaticImage("Resources/second_lvl.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -28,7 +48,7 @@ def lvl3_scene():
 
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/third_lvl.PNG", 1920/2, 1080/2)
+    background_layer = StaticImage("Resources/third_lvl.PNG", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     return Scene
@@ -48,7 +68,7 @@ def box_scene(main):
     """Создание инвентаря"""
     Scene = cocos.scene.Scene()
 
-    background_layer = StaticImage("Resources/box_bg.png", 1920/2, 1080/2)
+    background_layer = StaticImage("Resources/box_bg.png", 1920/2, 1080/2, 1)
     Scene.add(background_layer)
 
     Scene.add(inventory.Inventory(main))
