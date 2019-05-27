@@ -108,17 +108,26 @@ if __name__ == '__main__':
 
     """Инициализация объектов"""
     # Взаимодействие с объектами 1 уровня
+    bench = MessageAcionLayer(700, 280, "Resources/bench_action.png")
+    ward = MessageAcionLayer(840, 782, "Resources/ward_action.png")
+    locked = MessageAcionLayer(1460, 150, "Resources/locked_action.png")
+    locked2 = MessageAcionLayer(1600, 420, "Resources/locked2_action.png")
+    mirror = MessageAcionLayer(0, 325, "Resources/mirror_action.png")
+
     # Взаимодействие с объектами 2 уровня
     spider = MessageAcionLayer(415, 65, "Resources/spider_action.png")
     otvertka = MessageAcionLayer(1148, 764, "Resources/otvertka_action.png")
     boots = MessageAcionLayer(1130, 247, "Resources/boots_action.png")
     boots2 = MessageAcionLayer(1455, 595, "Resources/boots2_action.png")
     garbage_box = MessageAcionLayer(1355, 33, "Resources/garbage_box_action.png")
+    plakat = MessageAcionLayer(700, 433, "Resources/plakat_action.png")
+    resh = MessageAcionLayer(315, 240, "Resources/resh_action.png")
 
     # Взаимодействие с объектами 3 уровня
     safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png")
+    acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png")
+    
     ufo = UFOLayer()
-
     scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
@@ -134,7 +143,11 @@ if __name__ == '__main__':
     lvl1.add(lvl1_to_empty)
     lvl1.add(lvl1_to_lvl2)
     lvl1.add(small_menu_1)
-
+    lvl1.add(bench) 
+    lvl1.add(ward) 
+    lvl1.add(locked)
+    lvl1.add(locked2)
+    lvl1.add(mirror)
 
     #Объекты для сцены (уровня) со шкафом
     lvl_locker.add(locker_to_lvl1)
@@ -151,7 +164,9 @@ if __name__ == '__main__':
     lvl2.add(otvertka)
     lvl2.add(boots) 
     lvl2.add(boots2)
-    lvl2.add(garbage_box) 
+    lvl2.add(garbage_box)
+    lvl2.add(plakat)
+    lvl2.add(resh) 
 
     # Объекты для сцены (уровня) №3
     lvl3.add(acid)
@@ -159,6 +174,7 @@ if __name__ == '__main__':
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
     lvl3.add(safe)
+    lvl3.add(acid_ac)
     
     """Запуск игры с главного меню"""
     director.run(Menu)
