@@ -89,7 +89,7 @@ if __name__ == '__main__':
     
 
     scarf = ItemInv(560, 515, "Resources/scarf.png", "scarf")
- 
+    code_paper = StaticImage("Resources/code_paper.png", 750, 175,0.15) # <-- точные координаты и scale
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.png", "acid")
     n = Naruto()
@@ -97,6 +97,7 @@ if __name__ == '__main__':
 
     """Заполнение сцен"""
     # Объекты для сцены (уровня) №1
+    lvl_locker.add(code_paper)
     lvl1.add(scarf)
     lvl1.add(message1)
     lvl1.add(lvl1_to_locker)
