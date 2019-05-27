@@ -1,5 +1,6 @@
 import cocos
 from inventory import inv
+from pyglet.window import mouse
 
 global acid
 barr = {"acid" : 1}
@@ -95,3 +96,32 @@ class DinamicImage(cocos.layer.Layer):
     def new_sprite_pipe(self):
         show = cocos.actions.FadeIn(1)
         self.obj_g.do(show)
+
+class MessageAcionLayer(cocos.layer.Layer):
+    """
+    Объект перехода на следующий уровень
+    Направление: напрво
+    """
+    is_event_handler = True
+    def __init__(self, x, y, texture):
+        self.w = x
+        self.h = y
+        self.texture = texture
+        super().__init__()
+
+        # Загрузка и установка изображения
+        self.obj = cocos.sprite.Sprite(self.texture, anchor = (0,0))
+        self.obj.position = self.w, self.h
+        self.add(self.obj)
+
+    def mouse_on_sprite(self, x, y):
+        """Метод проверки курсора на попадание по объекту"""
+        if (x < (self.obj.x + self.obj.width) and x > self.obj.x and y < (self.obj.y + self.obj.height) and y > self.obj.y):
+            return True
+        return False
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        """Метод осуществления перехода к выбранной сцене"""
+        if button & mouse.LEFT:
+            if self.mouse_on_sprite(x,y):
+                """Message box action"""

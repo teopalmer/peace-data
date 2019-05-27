@@ -1,7 +1,7 @@
 import menu
 import transitions
 import small_menu
-from texture_tools import StaticImage, DinamicImage, MessageBox
+from texture_tools import StaticImage, DinamicImage, MessageBox, MessageAcionLayer
 from scenes import lvl1_scene, lvl1_locker, lvl1_empty_locker, lvl2_scene, lvl3_scene, final_scene
 from scenes import box_scene, set_scene
 import cocos
@@ -107,7 +107,18 @@ if __name__ == '__main__':
     lvl3_to_final = transitions.ArrowRight(1111, 777, final)
 
     """Инициализация объектов"""
+    # Взаимодействие с объектами 1 уровня
+    # Взаимодействие с объектами 2 уровня
+    spider = MessageAcionLayer(415, 65, "Resources/spider_action.png")
+    otvertka = MessageAcionLayer(1148, 764, "Resources/otvertka_action.png")
+    boots = MessageAcionLayer(1130, 247, "Resources/boots_action.png")
+    boots2 = MessageAcionLayer(1455, 595, "Resources/boots2_action.png")
+    garbage_box = MessageAcionLayer(1355, 33, "Resources/garbage_box_action.png")
+
+    # Взаимодействие с объектами 3 уровня
+    safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png")
     ufo = UFOLayer()
+
     scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
@@ -135,12 +146,18 @@ if __name__ == '__main__':
     lvl2.add(lvl2_to_lvl1)
     lvl2.add(lvl2_to_lvl3)
     lvl2.add(small_menu_2)
+    lvl2.add(spider)
+    lvl2.add(otvertka)
+    lvl2.add(boots) 
+    lvl2.add(boots2)
+    lvl2.add(garbage_box) 
 
     # Объекты для сцены (уровня) №3
     lvl3.add(acid)
     lvl3.add(lvl3_to_lvl2)
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
-
+    lvl3.add(safe)
+    
     """Запуск игры с главного меню"""
     director.run(Menu)
