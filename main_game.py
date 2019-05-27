@@ -88,8 +88,8 @@ if __name__ == '__main__':
     acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
 
 
-    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
-    code_paper = StaticImage("Resources/code_paper.png", 750, 175,0.15) # <-- точные координаты и scale
+    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf", 1)
+    code_paper = ItemInv(700, 75, "Resources/code_paper.png", "paper", 0.15) # <-- точные координаты и scale
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
     n = Naruto()

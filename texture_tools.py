@@ -3,7 +3,7 @@ from inventory import inv, sms, MessageBox
 from pyglet.window import mouse
 
 global acid
-barr = {"acid" : 1, "key" : 1, "code_paper":1}
+barr = {"acid" : 1, "door" : 1, "safe":1}
 
 
 class StaticImage(cocos.sprite.Sprite):
@@ -52,16 +52,25 @@ class DinamicImage(cocos.layer.Layer):
             if self.name == 'acid' and barr[self.name] == 1:
                 if inv['scarf'] == 1:
                     self.delete_from_screen()
-                    self.new_sprite_pipe()
+                    self.new_sprite()
                     barr[self.name] = 0
+                    MessageBox["acid_scrf", 40, 400, 120]
                 else:
                     MessageBox("scarf_warning", 40, 400, 120)
+            if self.name == 'safe' and barr[self.name] == 1:
+                if inv['paper'] == 1:
+                    self.delete_from_screen()
+                    self.new_sprite()
+                    barr[self.name] = 0
+                    MessageBox["safe", 40, 400, 120]
+                else:
+                    MessageBox["sefe_open", 40, 400, 120]
 
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(3)
         self.obj_b.do(hide)
 
-    def new_sprite_pipe(self):
+    def new_sprite(self):
         show = cocos.actions.FadeIn(1)
         self.obj_g.do(show)
 
@@ -70,7 +79,7 @@ class MessageAcionLayer(cocos.layer.Layer):
     Объект перехода на следующий уровень
     Направление: напрво
     """
-    
+
     is_event_handler = True
     def __init__(self, x, y, texture, message, pos_x, pos_y, font_size):
         self.w = x
