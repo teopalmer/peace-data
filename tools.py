@@ -47,18 +47,3 @@ class SetMenu(cocos.menu.Menu):
 
     def on_back(self):
         director.replace(animation(self.main_game_scene, duration = 2))
-
-
-if __name__ == '__main__':
-    director.init(width=1920, height=1080, caption="Cocos test", autoscale=True, resizable=True) # Инициализация директора (тест)
-    director.window.pop_handlers()
-
-
-    test_scene = cocos.scene.Scene()
-    scene_box = cocos.scene.Scene()
-    scene_set = cocos.scene.Scene()
-    small_menu = menu.SmallMenu(scene_set,scene_box)
-    test_scene.add(small_menu)
-    scene_set.add(SetMenu(test_scene))
-
-    director.run(test_scene)

@@ -64,7 +64,7 @@ if __name__ == '__main__':
 
     """Инициализация меню основной сценой"""
     Menu = cocos.scene.Scene()
-    background_layer = StaticImage("Resources/main_menu_bg.PNG", 1920/2, 1080/2, 1)
+    background_layer = StaticImage("Resources/main_menu_bg.png", 1920/2, 1080/2, 1)
     set_m = set_scene(Menu)
     Menu.add(background_layer)
     Menu.add(menu.Settings(set_m))
@@ -128,9 +128,9 @@ if __name__ == '__main__':
     acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png")
     
     ufo = UFOLayer()
-    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf")
+    scarf = ItemInv(560, 515, "Resources/scarf.png", "scarf")
     acid = DinamicImage(250, 95, "Resources/acid.png",
-    410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
+    410, 782, "Resources/Scarf_on_pipe.png", "acid")
     n = Naruto()
     message1 = MessageBox("lvl1", 40)
 
@@ -151,10 +151,8 @@ if __name__ == '__main__':
 
     #Объекты для сцены (уровня) со шкафом
     lvl_locker.add(locker_to_lvl1)
-    #lvl_locker.add(locker_to_lvl11)
     lvl_empty.add(n)
     lvl_empty.add(empty_to_lvl1)
-    #lvl_empty.add(empty_to_lvl11)
 
     # Объекты для сцены (уровня) №2
     lvl2.add(lvl2_to_lvl1)

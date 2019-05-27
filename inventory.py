@@ -2,8 +2,6 @@ import cocos
 from cocos.director import director
 from cocos.scenes import FadeTransition as animation
 
-
-
 global inv
 inv = {"scarf" : 0, "paper" : 0}
 global sms
@@ -28,7 +26,7 @@ class MessageBox(cocos.layer.Layer):
     """Всплывающие сообщения"""
     is_event_handler = True
     def __init__(self, name, size):
-        self.texture = "Resources/message.PNG"
+        self.texture = "Resources/message.png"
         self.xxx = 970
         self.yyy = 130
         self.name = name
