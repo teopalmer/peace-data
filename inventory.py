@@ -65,9 +65,8 @@ class MessageBox(cocos.layer.Layer):
         hide = cocos.actions.FadeOut(1)
         self.obj.do(hide)
         self.obj_label.do(hide)
+        self.obj_c.do(hide)
         self.kill(obj)
-        self.kill(obj_label)
-        self.kill(obj_c)
 
 class Inventory(cocos.menu.Menu):
 

@@ -1,7 +1,7 @@
 import menu
 import transitions
 import small_menu
-from texture_tools import StaticImage, DinamicImage, MessageAcionLayer, DinamicImageSafe
+from texture_tools import StaticImage, DinamicImage, MessageAcionLayer
 from scenes import lvl1_scene, lvl1_locker, lvl1_empty_locker, lvl2_scene, lvl3_scene, final_scene
 from scenes import box_scene, set_scene
 import cocos
@@ -131,7 +131,7 @@ if __name__ == '__main__':
     lvl3.add(lvl3_to_lvl2)
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
-    lvl3.add(safe)
+   # lvl3.add(safe) <--- safe
     lvl3.add(acid_ac)
     
     """Запуск игры с главного меню"""
