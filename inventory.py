@@ -9,7 +9,7 @@ global sms
 sms = {
         "key_warning": "              Дверь, однако заперта!",
         "paper":"          Хммм, похоже на цифровой код...",
-        "key" : "      Опять облом! Ну, хотя бы выберусь от сюда",
+        "key" : "      Экзамена нет! Ну, хотя бы выберусь от сюда",
         "scarf" : "О, этот шарф может мне пригодиться, пожалуй заберу его",
         "scarf_warning" : "Ну и как я её починю? Может замотать её чем?",
         "lvl1" : 'Черт! *Звук закрытия двери*' + 'Этого еще не хватало',
@@ -26,7 +26,9 @@ sms = {
         "plakat": 'Такс, шо тут у нас...',
         "resh": 'Кондиционер, трехкомнатный лофт — все как в сказке!',
         "acid_ac": 'Ну ёмаё! К лестнице не теперь подойти...',
-        "safe": 'Опа, что же там такое? Может быть экзамен по проге?'}
+        "acid_scrf": 'Ну вот, другое дело. Правда, шарф жалко',
+        "safe": 'Опа, что же там такое? Может быть экзамен по проге?',
+        "safe_open": "Опять облом!"}
 
 class MessageBox(cocos.layer.Layer):
     """Всплывающие сообщения"""
@@ -66,7 +68,7 @@ class MessageBox(cocos.layer.Layer):
         self.obj.do(hide)
         self.obj_label.do(hide)
         self.obj_c.do(hide)
-        self.kill(obj)
+        #self.kill(obj)
 
 class Inventory(cocos.menu.Menu):
 
@@ -90,7 +92,7 @@ class Inventory(cocos.menu.Menu):
 class ItemInv(cocos.layer.Layer):
     """Предмет инвентаря"""
     is_event_handler = True
-    def __init__(self, xxx, yyy, pickurl, name):
+    def __init__(self, xxx, yyy, pickurl, name, scale):
         self.name = name
         self.xxx = xxx
         self.yyy = yyy
@@ -99,6 +101,7 @@ class ItemInv(cocos.layer.Layer):
 
         self.obj = cocos.sprite.Sprite(pickurl, anchor = (0, 0))
         self.obj.position = self.xxx, self.yyy
+        self.obj.scale = scale
         self.add(self.obj)
 
     def mouse_on_sprite(self, x, y):
@@ -143,9 +146,9 @@ class Naruto(cocos.layer.Layer):
 
     def on_mouse_press(self, x, y, button, modifiers):
         if self.mouse_on_sprite(x, y):
-            #if self.count == 0:
-            self.new_sprite_pipe()
-            #self.count = 1
+            if self.count == 0:
+                self.new_sprite_pipe()
+                self.count = 1
 
     def new_sprite_pipe(self):
         show = cocos.actions.FadeIn(0.3)
