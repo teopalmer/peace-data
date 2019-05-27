@@ -1,14 +1,14 @@
 import menu
 import transitions
 import small_menu
-from texture_tools import StaticImage, DinamicImage, MessageBox, MessageAcionLayer
+from texture_tools import StaticImage, DinamicImage, MessageAcionLayer
 from scenes import lvl1_scene, lvl1_locker, lvl1_empty_locker, lvl2_scene, lvl3_scene, final_scene
 from scenes import box_scene, set_scene
 import cocos
 from cocos.director import director
 from pyglet.window import key, mouse
 import pyglet
-from inventory import ItemInv, Naruto
+from inventory import ItemInv, Naruto, MessageBox
 
 class Mover(cocos.actions.Move):
     """Реализация движения объекта клавиатурой"""

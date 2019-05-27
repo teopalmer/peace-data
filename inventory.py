@@ -1,11 +1,49 @@
 import cocos
 from cocos.director import director
 from cocos.scenes import FadeTransition as animation
-import texture_tools
-from texture_tools import *
+
+
 
 global inv
 inv = {"scarf" : 0, "paper" : 0}
+global sms
+sms = {"scarf" : "О, этот шарф может мне пригодиться, пожалуй заберу его",
+       "lvl1" : 'Черт! Опаздываю на физру. Быстрее переодеваться' +
+        '--Звук закрытия двери--' + '<k. Этого еще не хватало'}
+class MessageBox(cocos.layer.Layer):
+    """Всплывающие сообщения"""
+    is_event_handler = True
+    def __init__(self, name, size):
+        self.texture = "Resources/message.PNG"
+        self.xxx = 970
+        self.yyy = 130
+        self.name = name
+        self.text = sms[self.name]
+        super().__init__()
+
+        self.obj = cocos.sprite.Sprite(self.texture)
+        self.obj.position = self.xxx, self.yyy
+        self.obj.anchor = (0, 0)
+        self.add(self.obj)
+        self.obj_label = cocos.text.Label(self.text, font_name = "Calibri", font_size = size)
+        self.obj_label.position = 300, self.yyy/2 + 20
+        self.add(self.obj_label)
+
+    def mouse_on_sprite(self, x, y):
+        if (x < (self.obj.x + self.obj.width) and x > self.obj.x and y < (self.obj.y + self.obj.height) and y > self.obj.y):
+            return True
+        return False
+
+    def on_mouse_press(self, x, y, button, modifiers):
+        if self.mouse_on_sprite(x, y):
+            self.delete_from_screen()
+
+    def delete_from_screen(self):
+        hide = cocos.actions.FadeOut(3)
+        self.obj.do(hide)
+        self.obj_label.do(hide)
+        #self.text = ""
+        #self.add(self.obj_label)
 
 class Inventory(cocos.menu.Menu):
 
