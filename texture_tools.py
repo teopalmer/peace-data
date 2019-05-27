@@ -16,6 +16,18 @@ class StaticImage(cocos.sprite.Sprite):
         self.position = self.w, self.h
         self.scale = scale
 
+class MessageBox(cocos.layer.Layer):
+    """Всплывающие сообщения"""
+    def __init__(self, x, y, text):
+        self.texture = "Resources/IMG_0103.PNG"
+        self.x = x
+        self.y = y
+        self.text = text
+        super().__init__()
+
+        self.obj = cocos.sprite.Sprite(self.texture, anchor = (0, 0))
+        self.obj.position = self.x, self.y
+
 
 class DinamicImage(cocos.layer.Layer):
     """Установка препятствий, для которых нужен предмет"""
