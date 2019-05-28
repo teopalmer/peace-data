@@ -1,8 +1,11 @@
 import cocos
-from inventory import inv, sms, MessageBox, ItemInv
+from inventory import inv, MessageBox, ItemInv
 from pyglet.window import mouse
 
+# Объяевление кисоты как глобальной переменной
 global acid
+
+# Объявление словаря барьеров
 barr = {"acid" : 1, "door" : 1, "key":1, "safe":1}
 
 class StaticImage(cocos.sprite.Sprite):
@@ -31,18 +34,24 @@ class DinamicImage(cocos.layer.Layer):
         self.pickurlg = pickurlg
         super().__init__()
 
+        # Начальный объект
         self.obj_b = cocos.sprite.Sprite(pickurlb, anchor = (0, 0))
         self.obj_b.position = self.xb, self.yb
         self.add(self.obj_b)
 
+        # Конечный объект
         self.obj_g = cocos.sprite.Sprite(pickurlg, anchor = (0, 0))
         self.obj_g.opacity = 0
         self.obj_g.position = self.xg, self.yg
+
+        # Установка иерархии
         if self.name == 'safe':
             self.add(self.obj_g, z = -1)
         else:
             self.add(self.obj_g)
+
     def mouse_on_sprite(self, x, y):
+        """Метод проверки курсора на попадание по объекту"""
         if (x < (self.obj_b.x + self.obj_b.width) and x > self.obj_b.x and y < (self.obj_b.y + self.obj_b.height) and y > self.obj_b.y):
             return True
         return False
@@ -69,10 +78,12 @@ class DinamicImage(cocos.layer.Layer):
                     self.add(MessageBox("safe", 40, 400, 120))
 
     def delete_from_screen(self):
+        """Удаление картинки"""
         hide = cocos.actions.FadeOut(3)
         self.obj_b.do(hide)
 
     def new_sprite(self):
+        """Проявление картинки"""
         show = cocos.actions.FadeIn(1)
         self.obj_g.do(show)
 

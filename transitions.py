@@ -144,9 +144,9 @@ class ArrowRight(cocos.layer.Layer):
         if button & mouse.LEFT:
             if self.mouse_on_sprite(x,y):
                 if barr['acid'] == 0:
-                   if barr['key'] == 0:
+                    if barr['key'] == 0:
                         director.replace(ending(self.scene, duration = 2.5))
-                   else:
+                    else:
                         self.add(MessageBox("key_warning", 40, 400, 120))
                 else:
                     self.add(MessageBox("scarf_warning", 40, 400, 120))

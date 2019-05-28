@@ -6,8 +6,6 @@ from scenes import lvl1_scene, lvl1_locker, lvl1_empty_locker, lvl2_scene, lvl3_
 from scenes import box_scene, set_scene
 import cocos
 from cocos.director import director
-from pyglet.window import mouse
-import pyglet
 from inventory import ItemInv, Naruto, MessageBox
 
 if __name__ == '__main__':
@@ -72,6 +70,8 @@ if __name__ == '__main__':
     locked = MessageAcionLayer(1460, 150, "Resources/locked_action.png", "locked", 787, 120, 40)
     locked2 = MessageAcionLayer(1600, 420, "Resources/locked2_action.png", "locked2", 787, 120, 40)
     mirror = MessageAcionLayer(0, 325, "Resources/mirror_action.png", "mirror", 687, 120, 40)
+    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf", 1)
+    code_paper = ItemInv(600, 75, "Resources/code_paper.png", "paper", 0.15)
 
     # Взаимодействие с объектами 2 уровня
     spider = MessageAcionLayer(415, 65, "Resources/spider_action.png", "spider", 600, 120, 40)
@@ -83,17 +83,13 @@ if __name__ == '__main__':
     resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh", 287, 120, 40)
 
     # Взаимодействие с объектами 3 уровня
-    #acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
-
-    # Остальные объекты
-    scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf", 1)
-    code_paper = ItemInv(600, 75, "Resources/code_paper.png", "paper", 0.15)
     acid = DinamicImage(250, 95, "Resources/acid.png",
     410, 782, "Resources/Scarf_on_pipe.PNG", "acid", lvl1)
 
     safe = DinamicImage(1490, 160, "Resources/safe_inside_invis.png",
     1490, 160, "Resources/true_safe_inside.png", "safe", lvl3)
 
+    # Остальные объекты
     n = Naruto()
     message1 = MessageBox("lvl1", 40, 300, 100)
 
@@ -135,7 +131,6 @@ if __name__ == '__main__':
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
     lvl3.add(safe) 
-   # lvl3.add(acid_ac)
 
     """Запуск игры с главного меню"""
     director.run(Menu)

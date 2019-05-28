@@ -3,7 +3,6 @@ from cocos.director import director
 from cocos.scenes import FadeTransition as animation
 
 class MainMenu(cocos.menu.Menu):
-
     """Главное меню"""
     def __init__(self, main_game_scene):
         self.main_game_scene = main_game_scene
@@ -31,6 +30,7 @@ class MainMenu(cocos.menu.Menu):
         director.window.close()
 
 class Settings(cocos.menu.Menu):
+    """Меню настроек"""
     def __init__(self, set_scene):
         self.set_scene = set_scene
         super().__init__()
