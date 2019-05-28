@@ -21,3 +21,7 @@
 и собирать предметы, чтобы открывать двери от уровня к уровню.
 
 [Презентация команды](https://docs.google.com/presentation/d/1e0KeqCj4nAIXG77NY11ruQnPHM-dqU2oOtEUYZJCqL0/edit#slide=id.p1)
+
+[Презентация для защиты](https://drive.google.com/file/d/1L7qLN6aacuHzSMgRMCtGegm9e7cnmUji/view?usp=sharing)
+
+[Демонстрационный ролик](https://www.youtube.com/watch?v=-0Wxmng2sEg&feature=youtu.be)
