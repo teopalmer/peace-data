@@ -1,10 +1,9 @@
 import cocos
-from inventory import inv, sms, MessageBox
+from inventory import inv, sms, MessageBox, ItemInv
 from pyglet.window import mouse
 
 global acid
-barr = {"acid" : 1, "door" : 1, "safe":1}
-
+barr = {"acid" : 1, "door" : 1, "key":1, "safe":1}
 
 class StaticImage(cocos.sprite.Sprite):
     """Установка статического изображения по координатам"""
@@ -18,16 +17,15 @@ class StaticImage(cocos.sprite.Sprite):
         self.position = self.w, self.h
         self.scale = scale
 
-
 class DinamicImage(cocos.layer.Layer):
     """Установка препятствий, для которых нужен предмет"""
     is_event_handler = True
-    def __init__(self,  xb, yb, pickurlb, xg, yg, pickurlg, name):
+    def __init__(self,  xb, yb, pickurlb, xg, yg, pickurlg, name, scene):
         self.name = name
         self.xb = xb
         self.yb = yb
         self.pickurlb = pickurlb
-
+        self.scene = scene
         self.xg = xg
         self.yg = yg
         self.pickurlg = pickurlg
@@ -40,8 +38,10 @@ class DinamicImage(cocos.layer.Layer):
         self.obj_g = cocos.sprite.Sprite(pickurlg, anchor = (0, 0))
         self.obj_g.opacity = 0
         self.obj_g.position = self.xg, self.yg
-        self.add(self.obj_g)
-
+        if self.name == 'safe':
+            self.add(self.obj_g, z = -1)
+        else:
+            self.add(self.obj_g)
     def mouse_on_sprite(self, x, y):
         if (x < (self.obj_b.x + self.obj_b.width) and x > self.obj_b.x and y < (self.obj_b.y + self.obj_b.height) and y > self.obj_b.y):
             return True
@@ -54,17 +54,19 @@ class DinamicImage(cocos.layer.Layer):
                     self.delete_from_screen()
                     self.new_sprite()
                     barr[self.name] = 0
-                    MessageBox["acid_scrf", 40, 400, 120]
+                    self.add(MessageBox("acid_scrf", 40, 400, 120))
                 else:
-                    MessageBox("scarf_warning", 40, 400, 120)
+                    self.add(MessageBox("no_scarf_warning", 40, 200, 120))
             if self.name == 'safe' and barr[self.name] == 1:
                 if inv['paper'] == 1:
                     self.delete_from_screen()
                     self.new_sprite()
                     barr[self.name] = 0
-                    MessageBox["safe", 40, 400, 120]
+                    barr['key'] = 0
+                    self.add(MessageBox("safe_open", 40, 400, 120))
+                    self.scene.add(ItemInv(1490, 200, "Resources/key.png", "key", 0.15))
                 else:
-                    MessageBox["sefe_open", 40, 400, 120]
+                    self.add(MessageBox("safe", 40, 400, 120))
 
     def delete_from_screen(self):
         hide = cocos.actions.FadeOut(3)

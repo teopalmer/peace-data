@@ -83,15 +83,17 @@ if __name__ == '__main__':
     resh = MessageAcionLayer(315, 240, "Resources/resh_action.png", "resh", 287, 120, 40)
 
     # Взаимодействие с объектами 3 уровня
+    #acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
 
-    #safe = MessageAcionLayer(1483, 163, "Resources/safe_action.png", "safe", 287, 120, 40) <- тестовое сообщение (можно удалить и заменить по аналогии на шарф)
-    acid_ac = MessageAcionLayer(300, 123, "Resources/acid_action.png", "acid_ac", 487, 120, 40)
-
-
+    # Остальные объекты
     scarf = ItemInv(560, 515, "Resources/scarf.PNG", "scarf", 1)
-    code_paper = ItemInv(700, 75, "Resources/code_paper.png", "paper", 0.15) # <-- точные координаты и scale
+    code_paper = ItemInv(600, 75, "Resources/code_paper.png", "paper", 0.15)
     acid = DinamicImage(250, 95, "Resources/acid.png",
-    410, 782, "Resources/Scarf_on_pipe.PNG", "acid")
+    410, 782, "Resources/Scarf_on_pipe.PNG", "acid", lvl1)
+
+    safe = DinamicImage(1490, 160, "Resources/safe_inside_invis.png",
+    1490, 160, "Resources/true_safe_inside.png", "safe", lvl3)
+
     n = Naruto()
     message1 = MessageBox("lvl1", 40, 300, 100)
 
@@ -111,7 +113,7 @@ if __name__ == '__main__':
     lvl1.add(mirror)
 
     #Объекты для сцены (уровня) со шкафом
-    lvl_locker.add(locker_to_lvl1)
+    lvl_locker.add(locker_to_lvl1, z = -1)
     lvl_empty.add(n)
     lvl_empty.add(empty_to_lvl1)
 
@@ -132,8 +134,8 @@ if __name__ == '__main__':
     lvl3.add(lvl3_to_lvl2)
     lvl3.add(lvl3_to_final)
     lvl3.add(small_menu_3)
-   # lvl3.add(safe) <--- safe
-    lvl3.add(acid_ac)
+    lvl3.add(safe) 
+   # lvl3.add(acid_ac)
 
     """Запуск игры с главного меню"""
     director.run(Menu)

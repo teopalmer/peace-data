@@ -19,7 +19,7 @@ def lvl1_locker():
     Scene = cocos.scene.Scene()
 
     background_layer = StaticImage("Resources/locker.png", 1920/2, 1080/2, 0.65)
-    Scene.add(background_layer)
+    Scene.add(background_layer, z = -2)
 
     return Scene
 
@@ -49,7 +49,7 @@ def lvl3_scene():
     Scene = cocos.scene.Scene()
 
     background_layer = StaticImage("Resources/third_lvl.PNG", 1920/2, 1080/2, 1)
-    Scene.add(background_layer)
+    Scene.add(background_layer, z = -2)
 
     return Scene
 
