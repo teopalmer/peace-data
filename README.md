@@ -1,14 +1,12 @@
 # Команда Peace Data
 
-![](https://i.imgur.com/quSNDyW.jpg)
-
 ## Состав команды и роли
 
-* 1. [Садулаева Теона](https://git.iu7.bmstu.ru/str18u474) - тимлид, дизайнер
-* 2. [Мишина Елена](https://git.iu7.bmstu.ru/mev18u391) - разработчик, тестировщик
-* 3. [Богаченко Артём](https://git.iu7.bmstu.ru/ba18u952) - разработчик
-* 4. [Таламбуца Артём](https://git.iu7.bmstu.ru/tayu18u514) - разработчик, презентор
-* 5. [Тевс Вадим](https://git.iu7.bmstu.ru/tvm18u898) - разработчик
+* [Садулаева Теона](https://git.iu7.bmstu.ru/str18u474) - тимлид, дизайнер
+* [Мишина Елена](https://git.iu7.bmstu.ru/mev18u391) - разработчик, тестировщик
+* [Богаченко Артём](https://git.iu7.bmstu.ru/ba18u952) - разработчик
+* [Таламбуца Артём](https://git.iu7.bmstu.ru/tayu18u514) - разработчик, презентор
+* [Тевс Вадим](https://git.iu7.bmstu.ru/tvm18u898) - разработчик
 
 Ментор - [Дмитрий Мельников](https://git.iu7.bmstu.ru/mda14u276)
 
